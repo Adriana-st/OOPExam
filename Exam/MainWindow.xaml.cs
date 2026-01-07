@@ -18,6 +18,17 @@ namespace Exam
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    public enum HouseholdSkill 
+    { 
+        Cooking, Cleaning, Laundry, Gardening, ChildCare 
+    }
+
+    public enum DeliveryMode 
+    { 
+        Walking, Driving, Flying 
+    }
+
     public partial class MainWindow : Window
     {
         public MainWindow()
