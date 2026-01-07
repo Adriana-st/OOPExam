@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Filter" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36"/>
+        <Label Content="Robot List" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Grid.Column="1"/>
+        <Label Content="Robot Details" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Grid.Column="2"/>
+        <RadioButton x:Name="rbtnAll" Content="ALL ROBOTS" HorizontalAlignment="Left" Margin="10,35,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtnHousehold" Content="HOUSEHOLD" HorizontalAlignment="Left" Margin="10,143,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtnDelivery" Content="DELIVERY" HorizontalAlignment="Left" Margin="10,249,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Image Margin="166,222,44,81" Grid.Row="1" Source="/delivery-robot.png" Stretch="Fill"/>
+        <Image Margin="166,107,32,186" Grid.Row="1" Source="/household-robot.png" Stretch="Fill"/>
+        <Image Margin="166,10,32,278" Source="/robot.png" Stretch="Fill" Grid.Row="1"/>
+        <ListBox x:Name="lbxRobots" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10"/>
+        <TextBlock x:Name="tblkRobotDetails" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text=" " VerticalAlignment="Center" Height="352" Width="247"/>
+
     </Grid>
 </Window>
