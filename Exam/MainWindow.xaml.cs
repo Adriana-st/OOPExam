@@ -31,9 +31,17 @@ namespace Exam
 
     public partial class MainWindow : Window
     {
+        public List<Robot> Robots = new List<Robot>();
         public MainWindow()
         {
             InitializeComponent();
+
+
+        }
+
+        public void CreateSomeRobots()
+        {
+
         }
     }
 }

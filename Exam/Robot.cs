@@ -14,6 +14,16 @@ namespace Exam
         public double CurrentPowerKWH { get; set; }
 
         //Constructors
+        protected Robot()
+        {
+            
+        }
+        protected Robot(string name, double powerCapacity, double currentPower)
+        {
+            RobotName = name;
+            PowerCapacityKWH = powerCapacity;
+            CurrentPowerKWH = currentPower;
+        }
 
         //Methods
         public double GetBatteryPercentage()

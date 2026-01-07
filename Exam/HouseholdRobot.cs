@@ -12,6 +12,15 @@ namespace Exam
         private List<HouseholdSkill> Skills {  get; set; }
 
         // Constructors
+        public HouseholdRobot()
+        {
+            
+        }
+        public HouseholdRobot(string name, double powerCapacity, double currentPower, List<HouseholdSkill> householdSkills)
+            : base(name, powerCapacity, currentPower)
+        {
+            Skills = householdSkills;
+        }
 
         // Methods
         public override string DescribeRobot()
