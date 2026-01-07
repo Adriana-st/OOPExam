@@ -33,7 +33,7 @@ namespace Exam
 
         public string DisplayBatteryInformation()
         {
-            return $"Battery Information \nCapacity: {PowerCapacityKWH} kWh \nBattery Level: {GetBatteryPercentage()}%";
+            return $"Battery Information \nCapacity: {PowerCapacityKWH} kWh \nCurrent Power: {CurrentPowerKWH} kWh \nBattery Level: {GetBatteryPercentage()}%";
         }
 
         public abstract string DescribeRobot();

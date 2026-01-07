@@ -31,17 +31,45 @@ namespace Exam
 
     public partial class MainWindow : Window
     {
-        public List<Robot> Robots = new List<Robot>();
+        public List<Robot> robots = new List<Robot>();
         public MainWindow()
         {
             InitializeComponent();
 
+            CreateSomeRobots();
 
         }
 
         public void CreateSomeRobots()
         {
+            //creating household robots and adding them to the robots list
+            HouseholdRobot r1 = new HouseholdRobot("HouseBot 01", 120, 60);
+            robots.Add(r1);
+            HouseholdRobot r2 = new HouseholdRobot("GardenMate", 25, 25);
+            robots.Add(r2);
+            HouseholdRobot r3 = new HouseholdRobot("HouseMate 3000", 250, 50);
+            robots.Add(r3);
 
+            //Adding Gardening to GardenMate
+            r2.DownloadSkill(HouseholdSkill.Gardening);
+
+            //Adding Cooking and Laundry to Housemate 3000
+            r3.DownloadSkill(HouseholdSkill.Cooking);
+            r3.DownloadSkill(HouseholdSkill.Laundry);
+
+            //creating delivery robots and adding them to the robots list
+            DeliveryRobot r4 = new DeliveryRobot("DeliveryBot", 25, 0, DeliveryMode.Walking, 100);
+            robots.Add(r4);
+            DeliveryRobot r5 = new DeliveryRobot("FlyBot", 100, 30, DeliveryMode.Flying, 50);
+            robots.Add(r5);
+            DeliveryRobot r6 = new DeliveryRobot("Driver", 75, 25, DeliveryMode.Driving, 100);
+            robots.Add(r6);
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbxRobots.ItemsSource = robots;
         }
     }
 }

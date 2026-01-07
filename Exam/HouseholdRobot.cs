@@ -16,10 +16,10 @@ namespace Exam
         {
             
         }
-        public HouseholdRobot(string name, double powerCapacity, double currentPower, List<HouseholdSkill> householdSkills)
+        public HouseholdRobot(string name, double powerCapacity, double currentPower)
             : base(name, powerCapacity, currentPower)
         {
-            Skills = householdSkills;
+            DownloadSkill(HouseholdSkill.Cleaning);
         }
 
         // Methods
@@ -31,6 +31,11 @@ namespace Exam
                 skills += $"{skill} \n";
             }
             return $"I am a household robot. \nI can help with chores around the house. \nHousehold Robot Skills: \n{skills} \n{DisplayBatteryInformation()}";
+        }
+
+        public void DownloadSkill (HouseholdSkill skill)
+        {
+            Skills.Add(skill);
         }
     }
 }
