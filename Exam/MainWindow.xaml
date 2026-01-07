@@ -25,7 +25,7 @@
         <Image Margin="166,222,44,81" Grid.Row="1" Source="/delivery-robot.png" Stretch="Fill"/>
         <Image Margin="166,107,32,186" Grid.Row="1" Source="/household-robot.png" Stretch="Fill"/>
         <Image Margin="166,10,32,278" Source="/robot.png" Stretch="Fill" Grid.Row="1"/>
-        <ListBox x:Name="lbxRobots" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10"/>
+        <ListBox x:Name="lbxRobots" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10" SelectionChanged="lbxRobots_SelectionChanged"/>
         <TextBlock x:Name="tblkRobotDetails" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="295" Width="247" Margin="0,14,0,0"/>
         <Button x:Name="btnCharge" Grid.Column="2" Content="Charge" HorizontalAlignment="Left" Margin="83,327,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="96" Background="#FF5F06AD" BorderBrush="#FF2C0052" Foreground="White" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>

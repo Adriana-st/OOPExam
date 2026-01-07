@@ -10,19 +10,26 @@ namespace Exam
     {
         // Properties
         private List<HouseholdSkill> Skills {  get; set; }
+        
 
         // Constructors
         public HouseholdRobot()
         {
             
         }
-        public HouseholdRobot(string name, double powerCapacity, double currentPower)
+        public HouseholdRobot(string name, double powerCapacity, double currentPower, List<HouseholdSkill> skills)
             : base(name, powerCapacity, currentPower)
         {
+            Skills = new List<HouseholdSkill>();
             DownloadSkill(HouseholdSkill.Cleaning);
+            Type = "HouseholdRobot";
         }
 
         // Methods
+        public override string ToString()
+        {
+            return base.ToString();
+        }
         public override string DescribeRobot()
         {
             string skills = "";
@@ -35,7 +42,8 @@ namespace Exam
 
         public void DownloadSkill (HouseholdSkill skill)
         {
-            Skills.Add(skill);
+             Skills.Add(skill);
         }
+        
     }
 }

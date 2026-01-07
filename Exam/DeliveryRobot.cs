@@ -21,9 +21,14 @@ namespace Exam
         {
             ModeOfDelivery = modeOfDelivery;
             MaxLoadKG = maxLoad;
+            Type = "DeliveryRobot";
         }
 
         // Methods
+        public override string ToString()
+        {
+            return base.ToString();
+        }
         public override string DescribeRobot()
         {
             return $"I am a delivery robot. \n\nI specialise in delivery by {ModeOfDelivery} \nThe maximum load I can carry is {MaxLoadKG} kg \n\n{DisplayBatteryInformation()}";

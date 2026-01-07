@@ -32,6 +32,7 @@ namespace Exam
     public partial class MainWindow : Window
     {
         public List<Robot> robots = new List<Robot>();
+        public List<Robot> filteredRobots = new List<Robot>();
         public MainWindow()
         {
             InitializeComponent();
@@ -43,11 +44,11 @@ namespace Exam
         public void CreateSomeRobots()
         {
             //creating household robots and adding them to the robots list
-            HouseholdRobot r1 = new HouseholdRobot("HouseBot 01", 120, 60);
+            HouseholdRobot r1 = new HouseholdRobot("HouseBot 01", 120, 60, new List<HouseholdSkill> ());
             robots.Add(r1);
-            HouseholdRobot r2 = new HouseholdRobot("GardenMate", 25, 25);
+            HouseholdRobot r2 = new HouseholdRobot("GardenMate", 25, 25, new List<HouseholdSkill>());
             robots.Add(r2);
-            HouseholdRobot r3 = new HouseholdRobot("HouseMate 3000", 250, 50);
+            HouseholdRobot r3 = new HouseholdRobot("HouseMate 3000", 250, 50, new List<HouseholdSkill>());
             robots.Add(r3);
 
             //Adding Gardening to GardenMate
@@ -70,6 +71,61 @@ namespace Exam
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lbxRobots.ItemsSource = robots;
+        }
+
+        private void lbxRobots_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Robot selectedRobot = lbxRobots.SelectedItem as Robot;
+
+            if (selectedRobot != null)
+            {
+                tblkRobotDetails.Text = null;
+                tblkRobotDetails.Text = selectedRobot.DescribeRobot();
+            }
+        }
+
+        private void RadioButton_Filter(object sender, RoutedEventArgs e)
+        {
+            // Guard clause to prevent errors during initialisation
+            if (lbxRobots == null) return;
+
+            // Clear filtered list
+            filteredRobots.Clear();
+
+            // Determine which radio button was checked
+            if (rbtnAll.IsChecked == true)
+            {
+                // Display all robots
+                lbxRobots.ItemsSource = null;
+                lbxRobots.ItemsSource = robots;
+            }
+            else if (rbtnDelivery.IsChecked == true)
+            {
+                // Filter to show only DeliveryRobot objects
+                foreach (Robot robot in robots)
+                {
+                    if (robot is DeliveryRobot)
+                    {
+                        filteredRobots.Add(robot);
+                    }
+                }
+                lbxRobots.ItemsSource = null;
+                lbxRobots.ItemsSource = filteredRobots;
+            }
+            else if (rbtnHousehold.IsChecked == true)
+            {
+                // Filter to show only HouseholdRobot objects
+                foreach (Robot robot in robots)
+                {
+                    if (robot is HouseholdRobot)
+                    {
+                        filteredRobots.Add(robot);
+                    }
+                }
+                lbxRobots.ItemsSource = null;
+                lbxRobots.ItemsSource = filteredRobots;
+            }
+            
         }
     }
 }
